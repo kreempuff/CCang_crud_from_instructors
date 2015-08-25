@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="app">
 <head>
 	<title>My App</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,21 @@
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 <body>
-	<h1>The App Works!</h1>
+	<h1>Navbar</h1>
+	<a ui-sref="Home">Home</a>
+	<a ui-sref="Profile">Profile</a>
+
+
+	<ui-view></ui-view>
+
+
+	<!-- Libs & Frames -->
+	<script src="/angular/angular.js"></script>
+	<!-- Lib & Frame Dependencies -->
+	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+	<!-- Source Code (app module, factory modules, controller modules) -->
 	<script src="/javascript/app.js"></script>
+	<script src="/javascript/controllers/homeController.js"></script>
+	<script src="/javascript/controllers/profileController.js"></script>
 </body>
 </html>
