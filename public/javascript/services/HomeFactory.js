@@ -14,12 +14,27 @@ app.factory('HomeFactory', ['$http', function($http) {
   }
 
   //get all dogs from the database on page load
-  $http.get(firebase + '.json').success(function(res) {
-    for(var prop in res) {
-      res[prop]._id = prop;
-      o.dogArr.push(res[prop]);
-    }
-  });
-
+  o.getDogs = function() {
+    $http.get(firebase + '.json').success(function(res) {
+      for (var prop in res) {
+        res[prop]._id = prop;
+        res[prop].editing = false;
+        o.dogArr.push(res[prop]);
+      }
+    });
+  }
+  o.guiToDelete = function(gui) {
+    $http.delete(firebase + gui + "/.json").success(function(res) {
+      o.dogArr.length = 0;
+      o.getDogs();
+    })
+  };
+  o.dogToUpdate =  function (dog) {
+    $http.put(firebase + dog._id + "/.json", dog).success(function (res) {
+      o.dogArr.length = 0;
+      o.getDogs();
+    })
+  }
+  o.getDogs();
   return o;
 }]);

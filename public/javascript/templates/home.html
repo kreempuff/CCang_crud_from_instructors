@@ -1,0 +1,16 @@
+<a class="btn btn-lg btn-default" ui-sref="CreateDog">Create a Dog</a>
+
+<div class="container well" ng-repeat="dog in vm.dogs">
+  <h3>Name: {{dog.name}}</h3>
+  <h4>Breed: {{dog.breed}}</h4>
+  <h4>Age: {{dog.age}}</h4>
+  <br>
+  <button class="btn btn-danger" ng-click="vm.deleteDog(dog._id)">Delete</button>
+  <button class="btn btn-warning" ng-click="vm.startUpdateDog(dog)">Edit</button>
+
+  <div ng-show="dog.editing">
+    <input type="text" ng.model="dog.name">
+    <button class="btn btn-warning" ng-click="vm.updateDog(dog)">Submit</button>
+  </div>
+
+</div>
