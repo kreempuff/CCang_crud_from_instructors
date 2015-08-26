@@ -15,4 +15,10 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: "ProfileController",
       controllerAs: "vm"
     })
+    .state('CreateDog', {
+      url: '/Dog/Create',
+      templateUrl: 'javascript/views/createDog.html',
+      controller: 'CreateDogController',
+      controllerAs: 'vm'
+    })
 })
